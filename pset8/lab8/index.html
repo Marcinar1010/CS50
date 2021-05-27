@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+        // TODO: Add code to check answers to questions
+
+        //check events when the DOM Content is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+        //#d9edff
+            // 1st part
+            // Change the backround color to red and the rest to default
+            document.querySelector("#button1").onclick = function() {
+                document.querySelector("#button1").style.backgroundColor = 'red';
+                document.querySelector("#button2").style.backgroundColor = '#d9edff';
+                document.querySelector("#correct_button").style.backgroundColor = '#d9edff';
+
+                document.querySelector("#answer1").innerHTML = 'Incorrect!';
+                document.querySelector("#answer1").style.display = 'block';
+            };
+
+            // Change the backround color to red
+            document.querySelector("#button2").onclick = function() {
+                document.querySelector("#button2").style.backgroundColor = 'red';
+                //document.querySelector("#button2").innerHTML = 'Incorrect!';
+                document.querySelector("#answer1").innerHTML = 'Incorrect!';
+                document.querySelector("#answer1").style.display = 'block';
+
+                document.querySelector("#button1").style.backgroundColor = '#d9edff';
+                document.querySelector("#correct_button").style.backgroundColor = '#d9edff';
+
+            };
+
+            // Change the backround color to green
+            document.querySelector("#correct_button").onclick = function() {
+                document.querySelector("#correct_button").style.backgroundColor = 'green';
+                document.querySelector("#answer1").innerHTML = 'Correct!';
+                document.querySelector("#answer1").style.display = 'block';
+
+                document.querySelector("#button1").style.backgroundColor = '#d9edff';
+                document.querySelector("#button2").style.backgroundColor = '#d9edff';
+            };
+
+            // 2nd part
+            document.querySelector("#part2").onsubmit = function() {
+                if(document.querySelector("#answer").value.toLowerCase() == "warsaw")
+                {
+                    document.querySelector("#answer2").innerHTML = 'Correct!';
+                    document.querySelector("#answer2").style.display = 'block';
+                    document.querySelector("#submit").style.backgroundColor = 'green';
+
+                }
+                else
+                {
+                    document.querySelector("#answer2").innerHTML = 'Inorrect!';
+                    document.querySelector("#answer2").style.display = 'block';
+                    document.querySelector("#submit").style.backgroundColor = 'red';
+                }
+                return false;
+            };
+
+        });
+
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the best basketball team in the NBA?</h3>
+                <p id=answer1 display="None"></p>
+                <!-- TODO: Add multiple choice question here -->
+                    <button id="button1"> Phoenix Suns </button>
+                    <button id="button2"> New York Knicks </button>
+                    <button id="correct_button"> Brooklyn Nets </button>
+
+            </div>
+
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What's the capital city of Poland?</h3>
+                <p id=answer2 display="None"></p>
+                <!-- TODO: Add free response question here -->
+                <form id=part2>
+                    <input id="answer" type="text" placeholder="Type in the answer.">
+                    <input id="submit" type="submit" value="Check the answer!">
+                </form>
+            </div>
+
+        </div>
+    </body>
+</html>
