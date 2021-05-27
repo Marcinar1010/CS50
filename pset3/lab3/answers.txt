@@ -1,0 +1,11 @@
+sort1 uses: BUBBLE SORT
+
+How do you know?: Random values and reveresed values have similiar run time (slowest algorithm in those cases). But more importantely, when sorting already sorted elementes, algorithm did it much faster. So, that's why i assume is a Bubble sort, because this is exactly the way it works, by sorting already sorted elemenets, it checks adjacent pair's only once so Omega(n) - best case scenario. In other cases takes much more time so O(n^2)
+
+sort2 uses: MERGE SORT
+
+How do you know?: It is definitely the fastest algorithm. Independentaly from the file(sorted, random, reveresed), it has similiar run time. So that's why i assume is Merge sort.
+
+sort3 uses: SELECTION SORT
+
+How do you know?: It has similiar run time independentaly from the file(sorted, random, reversed). But is a lot slower than sort2. So that's why it must be Selection Sort.
