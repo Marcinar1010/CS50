@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Avg. Price</th>
+                    <th>Current Price</th>
+                    <th>TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for stock in stocks %}
+                        {% set stock = stocks[loop.index-1] %}
+                        {% set d = data[loop.index-1] %}
+                   <tr>
+                       <td> {{ stock.symbol }} </td>
+                       <td> {{ d.name }} </td>
+                       <td> {{ stock.shares }} </td>
+                       <td> ${{ '%0.2f'|format(stock.price|float) }} </td>
+                       <td> ${{ '%0.2f'|format(d.price|float)}} </td>
+                       <td> ${{ '%0.2f'|format(stock.value|float)}} </td>
+                   </tr>
+                   {% endfor %}
+                   <tr>
+                       <td> CASH </td>
+                       <td> </td>
+                       <td> </td>
+                       <td> </td>
+                       <td> </td>
+                       <td> ${{ '%0.2f'|format(cash|float) }} </td>
+                   </tr>
+                   <tr class="total">
+                       <td> </td>
+                       <td> </td>
+                       <td> </td>
+                       <td> </td>
+                       <td> </td>
+                       <td> ${{ '%0.2f'|format(total|float) }} </td>
+                   </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <form action="/quote" method="POST">
+        <div class="form-group">
+            <input autofocus class="form-control" name="symbol" placeholder="Stock Symbol" type="text">
+            <button id="check" class="btn btn-primary" type="submit">Check the stock</button>
+        </div>
+    </form>
+    <div class="section">
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                   <tr>
+                       <td> {{ data.symbol }} </td>
+                       <td> {{ data.name }} </td>
+                       <td> ${{ '%0.2f'|format(data.price|float)}} </td>
+                   </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
